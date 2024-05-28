@@ -3,7 +3,6 @@ import BookEdit from './BookEdit';
 
 function BookShow({ book, onDelete, onEdit }) {
   const [showEdit, setShowEdit] = useState(false);
-
   const handleDeleteClick = () => {
     onDelete(book.id);
   };
@@ -19,19 +18,19 @@ function BookShow({ book, onDelete, onEdit }) {
   if (showEdit) {
     content = <BookEdit onSubmit={handleSubmit} book={book} />;
   }
+
   return (
     <div className="book-show">
-      {content}
+      <div>{content}</div>
       <div className="actions">
-        <button className="edit" onClick={handleEditClick}>
+        <button className="delete" onClick={handleDeleteClick}>
           Edit
         </button>
-        <button className="delete" onClick={handleDeleteClick}>
-          delete
+        <button className="edit" onClick={handleEditClick}>
+          Delete
         </button>
       </div>
     </div>
   );
 }
-
 export default BookShow;
